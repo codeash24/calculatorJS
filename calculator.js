@@ -1,4 +1,6 @@
 let buffer='0';
+const screen = document.querySelector('.screen');
+
 
 function buttonClick (value) {
   if (isNaN(parseInt(value))){
@@ -6,6 +8,7 @@ function buttonClick (value) {
   }else{
     handleNumber(value);
   }
+  rerender();
 }
 
 function handleNumber(number) {
@@ -29,6 +32,10 @@ function init(){
     .addEventListener("click", function(event){
       buttonClick(event.target.innerText);
     });
+}
+
+function rerender(){
+  screen.innerText=buffer;
 }
 
 init();
