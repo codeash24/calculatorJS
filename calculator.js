@@ -1,19 +1,25 @@
+let buffer='0';
 
 function buttonClick (value) {
-console.log(value);
-  if (value==isNaN(parseInt)){
+  if (isNaN(parseInt(value))){
     handleSymbol(value);
   }else{
-    handleSymbol(value);
+    handleNumber(value);
   }
 }
 
-function handleNumbers (number) {
-  console.log('Is a number');
+function handleNumber(number) {
+  if(buffer==='0'){
+    buffer =  number;
+  }
+  else{
+    buffer += number;
+  }
+  console.log(buffer);
 }
 
 function handleSymbol(symbol){
-  console.log('is a symbol');
+
 }
 
 function init(){
