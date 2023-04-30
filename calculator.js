@@ -9,17 +9,18 @@ console.log(value);
 }
 
 function handleNumbers (number) {
-  console.log('number');
+  console.log('Is a number');
 }
 
 function handleSymbol(symbol){
-  console.log(symbol);
+  console.log('is a symbol');
 }
 
 function init(){
+  console.log('hi');
   document
   .querySelector('.calc-buttons')
-    .addEventListener("Click", function(event){
+    .addEventListener("click", function(event){
       buttonClick(event.target.innerText);
     });
 }
