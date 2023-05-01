@@ -12,14 +12,12 @@ function buttonClick (value) {
   rerender();
 }
 
-function handleNumber(number) {
-  if(buffer==='0'){
-    buffer =  number;
+function handleNumber(value) {
+  if (buffer === "0") {
+    buffer = value;
+  } else {
+    buffer += value;
   }
-  else{
-    buffer += number;
-  }
-  console.log(buffer);
 }
 
 function handleMath(value){
@@ -29,7 +27,7 @@ function handleMath(value){
   }
 
   const intBuffer=parseInt(buffer);
-  if(runningTotal==='0'){
+  if(runningTotal===0){
     runningTotal=intBuffer;
   }
   else{
@@ -37,6 +35,7 @@ function handleMath(value){
   }
   previousOperator=value;
   buffer='0';
+  console.log(runningTotal);
 }
 
 function flushOperation(intBuffer){
@@ -70,7 +69,14 @@ function handleSymbol(symbol){
       }
       break;
     case '=':
-      console.log('equals');
+      if(previousOperator===null){
+        // need two numbers
+        return
+      }
+      flushOperation(parseInt(buffer));
+      previousOperator=null;
+      buffer = " " + runningTotal;
+      runningTotal=0;
       break;
     case '+':
     case '-':
