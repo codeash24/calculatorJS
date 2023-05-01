@@ -1,7 +1,6 @@
 let buffer='0';
 const screen = document.querySelector('.screen');
 
-
 function buttonClick (value) {
   if (isNaN(parseInt(value))){
     handleSymbol(value);
@@ -22,7 +21,24 @@ function handleNumber(number) {
 }
 
 function handleSymbol(symbol){
-
+  switch(symbol)
+  {
+    case 'C':
+      buffer='0';
+      break;
+    case '←':
+      console.log('backspace');
+      break;
+    case '=':
+      console.log('equals');
+      break;
+    case '+':
+    case '-':
+    case '×':
+    case '÷':
+      console.log('math symbol');
+      break;
+  }
 }
 
 function init(){
